@@ -1,5 +1,6 @@
 import React from 'react';
 import './Register.css';
+import {backendURL} from '../.././url-file.js';
 
 // const Register=({onRouteChange})=>{
 // 	return(
@@ -7,41 +8,21 @@ import './Register.css';
 // 			<article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
 // 				<main className="pa4 black-80">
 // 					<div className="measure">
-
-
-
-
-
 // 					<fieldset id="sign_up" className="ba b--transparent ph0 mh0">
 // 						<legend className="f1 fw6 ph0 mh0">Register</legend>
-
-
 // 							<div className="mt3">
 // 								<label className="db fw6 lh-copy f6" htmlfor="name">Name</label>
 // 								<input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="name"  id="name"/>
 // 							</div>
-
-
 // 							<div className="mt3">
 // 								<label className="db fw6 lh-copy f6" htmlfor="email-address">Email</label>
 // 								<input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address"  id="email-address"/>
 // 							</div>
-
-
-
 // 							<div className="mv3">
 // 								<label className="db fw6 lh-copy f6" htmlfor="password">Password</label>
 // 								<input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password"/>
 // 							</div>
-
 // 					</fieldset>
-
-
-
-
-
-
-
 // 						<div className="">
 // 							<input 
 // 								className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
@@ -50,11 +31,6 @@ import './Register.css';
 // 								onClick={()=> onRouteChange('home')}
 // 							/>
 // 						</div>
-
-
-
-
-
 // 					</div>
 // 				</main>
 // 			</article>
@@ -62,15 +38,7 @@ import './Register.css';
 // 		);
 // }
 
-
-
-
-
 class Register extends React.Component{
-
-
-
-
 	constructor(props){
 		super(props);
 		this.state={
@@ -80,10 +48,6 @@ class Register extends React.Component{
 
 		}
 	}
-
-
-
-
 
 	onNameChange=(event)=>{
 		this.setState({name:event.target.value})
@@ -97,12 +61,8 @@ class Register extends React.Component{
 		this.setState({password:event.target.value})
 	}
 
-
-
-
 	onSubmitRegister=()=>{
-		//console.log('In onSubmitRegister');
-		fetch('https://aqueous-harbor-22133.herokuapp.com/register',{
+		fetch(`${backendURL}/register`,{
 			method:'post',
 			headers:{'Content-Type':'application/json'},
 			body: JSON.stringify(
@@ -123,11 +83,6 @@ class Register extends React.Component{
 			})	
 	}
 
-
-
-
-
-
 	render(){
 		const {onRouteChange}=this.props;
 		return(
@@ -135,17 +90,8 @@ class Register extends React.Component{
 				<article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
 					<main className="pa4 black-80">
 						<div className="measure">
-
-
 						<fieldset id="sign_up" className="ba b--transparent ph0 mh0">
 							<legend className="f1 fw6 ph0 mh0">Register</legend>
-
-
-
-
-
-
-
 								<div className="mt3">
 									<label className="db fw6 lh-copy f6" htmlfor="name">Name</label>
 									<input 
@@ -156,8 +102,6 @@ class Register extends React.Component{
 										onChange={this.onNameChange}
 									/>
 								</div>
-
-
 								<div className="mt3">
 									<label className="db fw6 lh-copy f6" htmlfor="email-address">Email</label>
 									<input 
@@ -168,9 +112,6 @@ class Register extends React.Component{
 										onChange={this.onEmailChange}
 									/>
 								</div>
-
-
-
 								<div className="mv3">
 									<label className="db fw6 lh-copy f6" htmlfor="password">Password</label>
 									<input 
@@ -181,24 +122,7 @@ class Register extends React.Component{
 										onChange={this.onPasswordChange}
 									/>
 								</div>
-
-
-
-
-
-
-
-
-
 						</fieldset>
-
-
-
-
-
-
-
-
 						<div className="">
 							<input 
 								className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
@@ -206,14 +130,16 @@ class Register extends React.Component{
 								value="Register"
 								onClick={this.onSubmitRegister}
 							/>
+
+						<div className="lh-copy mt3">
+							<p 
+								className="f6 link dim black db pointer" 
+								onClick={()=>{onRouteChange('signin')}}
+							>Sign in</p>
 						</div>
 
 
-
-
-
-
-
+						</div>
 						</div>
 					</main>
 				</article>
@@ -221,16 +147,5 @@ class Register extends React.Component{
 		);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
 
 export default Register;

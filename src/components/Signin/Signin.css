@@ -10,3 +10,7 @@
 .b--transparent {
     border-color: transparent;
 }
+
+.hover-black:hover{
+    background-color:#000 !important;
+}

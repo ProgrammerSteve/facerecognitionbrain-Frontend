@@ -2,7 +2,6 @@ import React from 'react';
 import Tilt from 'react-tilt';
 import './Logo.css';
 import brain from './brain_logo.png';
-//https://stackoverflow.com/questions/70166422/i-cant-install-npm-install-save-react-tilt
 
 const Logo=()=>{
 	return(
