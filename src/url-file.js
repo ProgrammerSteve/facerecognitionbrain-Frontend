@@ -8,4 +8,7 @@ const AWSURL='http://ec2-34-203-234-84.compute-1.amazonaws.com:3001';
 //Heroku
 const Heroku="https://smartbrain-app-backend.herokuapp.com"
 
-export const backendURL=Heroku;
+//Render.com
+const RenderURL="https://smartbrain-backend.onrender.com/"
+
+export const backendURL=RenderURL;

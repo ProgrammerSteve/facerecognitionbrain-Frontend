@@ -210,7 +210,7 @@ class App extends Component {
         {/* <Particles
           id="tsparticles"
           className='particles'
-          options={particlesOption}
+          options={particlesOption, particlesInit, particlesLoaded}
         /> */}
 
         <Navigation 
